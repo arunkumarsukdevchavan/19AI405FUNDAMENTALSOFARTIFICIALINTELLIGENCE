@@ -1,6 +1,6 @@
 <h1>ExpNo 1 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: Saravanan N</h3>
-<h3>Register Number/Staff Id: TSML006</h3>
+<h3>Name: ARUN KUMAR SUKDEV CHAVAN </h3>
+<h3>Register Number: 212222230013 </h3>
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -54,6 +54,33 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
  <li>If Not Visited, add it to the STACK. Else Call The Function Again Until No more nodes needs to be visited.</li>
 </ol></B>
 
+<h3>Program:</h3>
+
+```python
+#import defaultdict
+from collections import defaultdict
+def dfs(graph,start,visited,path):
+    path.append(start)
+    visited[start]=True
+    for neighbour in graph[start]:
+        if visited[neighbour]==False:
+            dfs(graph,neighbour,visited,path)
+            visited[neighbour]=True
+    return path
+graph=defaultdict(list)
+n,e=map(int,input().split())
+for i in range(e):
+    u,v=map(str,input().split())
+    graph[u].append(v)
+    graph[v].append(u)
+#print(graph)
+start='A'
+visited=defaultdict(bool)
+path=[]
+traversedpath=dfs(graph,start,visited,path)
+print(traversedpath)
+```
+
 <hr>
 <h3>Sample Input</h3>
 <hr>
@@ -70,26 +97,11 @@ F H <BR>
 <hr>
 <h3>Sample Output</h3>
 <hr>
-['A', 'B', 'E', 'D', 'C', 'G', 'F', 'H']
 
-<hr>
+![277401586-3c431e36-8e5b-43b9-ad06-258dfdaf5290](https://github.com/arunkumarsukdevchavan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/118343978/39b3fea2-77fb-4bc1-8fbb-39e1449b2e4b)
 
-<hr>
-<h3>Sample Input</h3>
-<hr>
-5 5 <BR>
-0 1 <BR>
-0 2 <BR>
-0 3 <BR>
-2 3 <BR>
-2 4 <BR>
-<hr>
-<h3>Sample Output</h3>
-<hr>
-['0', '1', '2', '3', '4']
 
 <hr>
 <h3>Result:</h3>
 <hr>
 <p>Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.</p>
-
